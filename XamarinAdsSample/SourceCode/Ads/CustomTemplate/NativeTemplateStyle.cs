@@ -16,149 +16,64 @@ namespace XamarinAdsSample
 {
     public sealed class NativeTemplateStyle : Java.Lang.Object
     {
-        private Typeface callToActionTextTypeface;
+        public Typeface CallToActionTextTypeface { get; set; }
 
         // Size of call to action text.
-        private float callToActionTextSize;
+        public float CallToActionTextSize { get; set; }
 
         // Call to action typeface color in the form 0xAARRGGBB.
-        private int callToActionTypefaceColor;
+        public int CallToActionTypefaceColor { get; set; }
 
         // Call to action background color.
-        private ColorDrawable callToActionBackgroundColor;
+        public ColorDrawable CallToActionBackgroundColor { get; set; }
 
         // All templates have a primary text area which is populated by the native ad's headline.
 
         // Primary text typeface.
-        private Typeface primaryTextTypeface;
+        public Typeface PrimaryTextTypeface { get; set; }
 
         // Size of primary text.
-        private float primaryTextSize;
+        public float PrimaryTextSize { get; set; }
 
         // Primary text typeface color in the form 0xAARRGGBB.
-        private int primaryTextTypefaceColor;
+        public int PrimaryTextTypefaceColor { get; set; }
 
         // Primary text background color.
-        private ColorDrawable primaryTextBackgroundColor;
+        public ColorDrawable PrimaryTextBackgroundColor { get; set; }
 
         // The typeface, typeface color, and background color for the second row of text in the template.
         // All templates have a secondary text area which is populated either by the body of the ad or
         // by the rating of the app.
 
         // Secondary text typeface.
-        private Typeface secondaryTextTypeface;
+        public Typeface SecondaryTextTypeface { get; set; }
 
         // Size of secondary text.
-        private float secondaryTextSize;
+        public float SecondaryTextSize { get; set; }
 
         // Secondary text typeface color in the form 0xAARRGGBB.
-        private int secondaryTextTypefaceColor;
+        public int SecondaryTextTypefaceColor { get; set; }
 
         // Secondary text background color.
-        private ColorDrawable secondaryTextBackgroundColor;
+        public ColorDrawable SecondaryTextBackgroundColor { get; set; }
 
         // The typeface, typeface color, and background color for the third row of text in the template.
         // The third row is used to display store name or the default tertiary text.
 
         // Tertiary text typeface.
-        private Typeface tertiaryTextTypeface;
+        public Typeface TertiaryTextTypeface { get; set; }
 
         // Size of tertiary text.
-        private float tertiaryTextSize;
+        public float TertiaryTextSize { get; set; }
 
         // Tertiary text typeface color in the form 0xAARRGGBB.
-        private int tertiaryTextTypefaceColor;
+        public int TertiaryTextTypefaceColor { get; set; }
 
         // Tertiary text background color.
-        private ColorDrawable tertiaryTextBackgroundColor;
+        public ColorDrawable TertiaryTextBackgroundColor { get; set; }
 
         // The background color for the bulk of the ad.
-        private ColorDrawable mainBackgroundColor;
-
-        public Typeface getCallToActionTextTypeface()
-        {
-            return callToActionTextTypeface;
-        }
-
-        public float getCallToActionTextSize()
-        {
-            return callToActionTextSize;
-        }
-
-        public int getCallToActionTypefaceColor()
-        {
-            return callToActionTypefaceColor;
-        }
-
-        public ColorDrawable getCallToActionBackgroundColor()
-        {
-            return callToActionBackgroundColor;
-        }
-
-        public Typeface getPrimaryTextTypeface()
-        {
-            return primaryTextTypeface;
-        }
-
-        public float getPrimaryTextSize()
-        {
-            return primaryTextSize;
-        }
-
-        public int getPrimaryTextTypefaceColor()
-        {
-            return primaryTextTypefaceColor;
-        }
-
-        public ColorDrawable getPrimaryTextBackgroundColor()
-        {
-            return primaryTextBackgroundColor;
-        }
-
-        public Typeface getSecondaryTextTypeface()
-        {
-            return secondaryTextTypeface;
-        }
-
-        public float getSecondaryTextSize()
-        {
-            return secondaryTextSize;
-        }
-
-        public int getSecondaryTextTypefaceColor()
-        {
-            return secondaryTextTypefaceColor;
-        }
-
-        public ColorDrawable getSecondaryTextBackgroundColor()
-        {
-            return secondaryTextBackgroundColor;
-        }
-
-        public Typeface getTertiaryTextTypeface()
-        {
-            return tertiaryTextTypeface;
-        }
-
-        public float getTertiaryTextSize()
-        {
-            return tertiaryTextSize;
-        }
-
-        public int getTertiaryTextTypefaceColor()
-        {
-            return tertiaryTextTypefaceColor;
-        }
-
-        public ColorDrawable getTertiaryTextBackgroundColor()
-        {
-            return tertiaryTextBackgroundColor;
-        }
-
-        public ColorDrawable getMainBackgroundColor()
-        {
-            return mainBackgroundColor;
-        }
+        public ColorDrawable MainBackgroundColor { get; set; }
 
         /** A class that provides helper methods to build a style object. * */
         public sealed class Builder : Java.Lang.Object
@@ -173,103 +88,103 @@ namespace XamarinAdsSample
 
             public Builder withCallToActionTextTypeface(Typeface callToActionTextTypeface)
             {
-                this.styles.callToActionTextTypeface = callToActionTextTypeface;
+                this.styles.CallToActionTextTypeface = callToActionTextTypeface;
                 return this;
             }
 
             public Builder withCallToActionTextSize(float callToActionTextSize)
             {
-                this.styles.callToActionTextSize = callToActionTextSize;
+                this.styles.CallToActionTextSize = callToActionTextSize;
                 return this;
             }
 
             public Builder withCallToActionTypefaceColor(int callToActionTypefaceColor)
             {
-                this.styles.callToActionTypefaceColor = callToActionTypefaceColor;
+                this.styles.CallToActionTypefaceColor = callToActionTypefaceColor;
                 return this;
             }
 
             public Builder withCallToActionBackgroundColor(ColorDrawable callToActionBackgroundColor)
             {
-                this.styles.callToActionBackgroundColor = callToActionBackgroundColor;
+                this.styles.CallToActionBackgroundColor = callToActionBackgroundColor;
                 return this;
             }
 
             public Builder withPrimaryTextTypeface(Typeface primaryTextTypeface)
             {
-                this.styles.primaryTextTypeface = primaryTextTypeface;
+                this.styles.PrimaryTextTypeface = primaryTextTypeface;
                 return this;
             }
 
             public Builder withPrimaryTextSize(float primaryTextSize)
             {
-                this.styles.primaryTextSize = primaryTextSize;
+                this.styles.PrimaryTextSize = primaryTextSize;
                 return this;
             }
 
             public Builder withPrimaryTextTypefaceColor(int primaryTextTypefaceColor)
             {
-                this.styles.primaryTextTypefaceColor = primaryTextTypefaceColor;
+                this.styles.PrimaryTextTypefaceColor = primaryTextTypefaceColor;
                 return this;
             }
 
             public Builder withPrimaryTextBackgroundColor(ColorDrawable primaryTextBackgroundColor)
             {
-                this.styles.primaryTextBackgroundColor = primaryTextBackgroundColor;
+                this.styles.PrimaryTextBackgroundColor = primaryTextBackgroundColor;
                 return this;
             }
 
             public Builder withSecondaryTextTypeface(Typeface secondaryTextTypeface)
             {
-                this.styles.secondaryTextTypeface = secondaryTextTypeface;
+                this.styles.SecondaryTextTypeface = secondaryTextTypeface;
                 return this;
             }
 
             public Builder withSecondaryTextSize(float secondaryTextSize)
             {
-                this.styles.secondaryTextSize = secondaryTextSize;
+                this.styles.SecondaryTextSize = secondaryTextSize;
                 return this;
             }
 
             public Builder withSecondaryTextTypefaceColor(int secondaryTextTypefaceColor)
             {
-                this.styles.secondaryTextTypefaceColor = secondaryTextTypefaceColor;
+                this.styles.SecondaryTextTypefaceColor = secondaryTextTypefaceColor;
                 return this;
             }
 
             public Builder withSecondaryTextBackgroundColor(ColorDrawable secondaryTextBackgroundColor)
             {
-                this.styles.secondaryTextBackgroundColor = secondaryTextBackgroundColor;
+                this.styles.SecondaryTextBackgroundColor = secondaryTextBackgroundColor;
                 return this;
             }
 
             public Builder withTertiaryTextTypeface(Typeface tertiaryTextTypeface)
             {
-                this.styles.tertiaryTextTypeface = tertiaryTextTypeface;
+                this.styles.TertiaryTextTypeface = tertiaryTextTypeface;
                 return this;
             }
 
             public Builder withTertiaryTextSize(float tertiaryTextSize)
             {
-                this.styles.tertiaryTextSize = tertiaryTextSize;
+                this.styles.TertiaryTextSize = tertiaryTextSize;
                 return this;
             }
 
             public Builder withTertiaryTextTypefaceColor(int tertiaryTextTypefaceColor)
             {
-                this.styles.tertiaryTextTypefaceColor = tertiaryTextTypefaceColor;
+                this.styles.TertiaryTextTypefaceColor = tertiaryTextTypefaceColor;
                 return this;
             }
 
             public Builder withTertiaryTextBackgroundColor(ColorDrawable tertiaryTextBackgroundColor)
             {
-                this.styles.tertiaryTextBackgroundColor = tertiaryTextBackgroundColor;
+                this.styles.TertiaryTextBackgroundColor = tertiaryTextBackgroundColor;
                 return this;
             }
 
             public Builder withMainBackgroundColor(ColorDrawable mainBackgroundColor)
             {
-                this.styles.mainBackgroundColor = mainBackgroundColor;
+                this.styles.MainBackgroundColor = mainBackgroundColor;
                 return this;
             }
 

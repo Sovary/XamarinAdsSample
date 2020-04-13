@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-
-using Android.App;
 using Android.Content;
 using Android.Content.Res;
 using Android.Gms.Ads.Formats;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.OS;
-using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
@@ -40,33 +32,30 @@ namespace XamarinAdsSample
         public TemplateView(Context context, IAttributeSet attrs):base(context, attrs)
         {
             
-            initView(context, attrs);
+            InitView(context, attrs);
         }
 
         public TemplateView(Context context, IAttributeSet attrs, int defStyleAttr):base(context, attrs, defStyleAttr)
         {
-            initView(context, attrs);
+            InitView(context, attrs);
         }
 
         public TemplateView(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes):base(context, attrs, defStyleAttr, defStyleRes)
         {
-            initView(context, attrs);
+            InitView(context, attrs);
         }
-        public void setStyles(NativeTemplateStyle styles)
+        public void SetStyles(NativeTemplateStyle styles)
         {
             this.styles = styles;
-            this.applyStyles();
+            this.ApplyStyles();
         }
 
-        public UnifiedNativeAdView getNativeAdView()
-        {
-            return nativeAdView;
-        }
+        public UnifiedNativeAdView NativeAdView => nativeAdView;
 
-        private void applyStyles()
+        private void ApplyStyles()
         {
 
-            Drawable mainBackground = styles.getMainBackgroundColor();
+            Drawable mainBackground = styles.MainBackgroundColor;
             if (mainBackground != null)
             {
                 background.Background= mainBackground;
@@ -84,115 +73,112 @@ namespace XamarinAdsSample
                 }
             }
 
-            Typeface primary = styles.getPrimaryTextTypeface();
+            Typeface primary = styles.PrimaryTextTypeface;
             if (primary != null && primaryView != null)
             {
                 primaryView.Typeface= primary;
             }
 
-            Typeface secondary = styles.getSecondaryTextTypeface();
+            Typeface secondary = styles.SecondaryTextTypeface;
             if (secondary != null && secondaryView != null)
             {
                 secondaryView.Typeface=secondary;
             }
 
-            Typeface tertiary = styles.getTertiaryTextTypeface();
+            Typeface tertiary = styles.TertiaryTextTypeface;
             if (tertiary != null && tertiaryView != null)
             {
                 tertiaryView.Typeface=tertiary;
             }
 
-            Typeface ctaTypeface = styles.getCallToActionTextTypeface();
+            Typeface ctaTypeface = styles.CallToActionTextTypeface;
             if (ctaTypeface != null && callToActionView != null)
             {
                 callToActionView.Typeface=ctaTypeface;
             }
 
-            int primaryTypefaceColor = styles.getPrimaryTextTypefaceColor();
+            int primaryTypefaceColor = styles.PrimaryTextTypefaceColor;
             if (primaryTypefaceColor > 0 && primaryView != null)
             {
 
                 primaryView.SetTextColor(Android.Graphics.Color.ParseColor($"{primaryTypefaceColor}"));
             }
 
-            int secondaryTypefaceColor = styles.getSecondaryTextTypefaceColor();
+            int secondaryTypefaceColor = styles.SecondaryTextTypefaceColor;
             if (secondaryTypefaceColor > 0 && secondaryView != null)
             {
                 secondaryView.SetTextColor(Android.Graphics.Color.ParseColor($"{secondaryTypefaceColor}"));
             }
 
-            int tertiaryTypefaceColor = styles.getTertiaryTextTypefaceColor();
+            int tertiaryTypefaceColor = styles.TertiaryTextTypefaceColor;
             if (tertiaryTypefaceColor > 0 && tertiaryView != null)
             {
                 tertiaryView.SetTextColor(Android.Graphics.Color.ParseColor($"{tertiaryTypefaceColor}"));
             }
 
-            int ctaTypefaceColor = styles.getCallToActionTypefaceColor();
+            int ctaTypefaceColor = styles.CallToActionTypefaceColor;
             if (ctaTypefaceColor > 0 && callToActionView != null)
             {
                 callToActionView.SetTextColor(Android.Graphics.Color.ParseColor($"{ctaTypefaceColor}"));
             }
 
-            float ctaTextSize = styles.getCallToActionTextSize();
+            float ctaTextSize = styles.CallToActionTextSize;
             if (ctaTextSize > 0 && callToActionView != null)
             {
                 callToActionView.SetTextSize(ComplexUnitType.Sp, ctaTextSize);
             }
 
-            float primaryTextSize = styles.getPrimaryTextSize();
+            float primaryTextSize = styles.PrimaryTextSize;
             if (primaryTextSize > 0 && primaryView != null)
             {
                 primaryView.SetTextSize(ComplexUnitType.Sp, primaryTextSize);
             }
 
-            float secondaryTextSize = styles.getSecondaryTextSize();
+            float secondaryTextSize = styles.SecondaryTextSize;
             if (secondaryTextSize > 0 && secondaryView != null)
             {
                 secondaryView.SetTextSize(ComplexUnitType.Sp, secondaryTextSize);
             }
 
-            float tertiaryTextSize = styles.getTertiaryTextSize();
+            float tertiaryTextSize = styles.TertiaryTextSize;
             if (tertiaryTextSize > 0 && tertiaryView != null)
             {
                 tertiaryView.SetTextSize(ComplexUnitType.Sp, tertiaryTextSize);
             }
 
-            Drawable ctaBackground = styles.getCallToActionBackgroundColor();
+            Drawable ctaBackground = styles.CallToActionBackgroundColor;
             if (ctaBackground != null && callToActionView != null)
             {
                 callToActionView.Background = ctaBackground;
             }
 
-            Drawable primaryBackground = styles.getPrimaryTextBackgroundColor();
+            Drawable primaryBackground = styles.PrimaryTextBackgroundColor;
             if (primaryBackground != null && primaryView != null)
             {
                 primaryView.Background= primaryBackground;
             }
 
-            Drawable secondaryBackground = styles.getSecondaryTextBackgroundColor();
+            Drawable secondaryBackground = styles.SecondaryTextBackgroundColor;
             if (secondaryBackground != null && secondaryView != null)
             {
                 secondaryView.Background = secondaryBackground;
             }
 
-            Drawable tertiaryBackground = styles.getTertiaryTextBackgroundColor();
+            Drawable tertiaryBackground = styles.TertiaryTextBackgroundColor;
             if (tertiaryBackground != null && tertiaryView != null)
             {
                 tertiaryView.Background = tertiaryBackground;
             }
-
-            /*invalidate();
-            requestLayout();*/
         }
 
-        private bool adHasOnlyStore(UnifiedNativeAd nativeAd)
+        private bool AdHasOnlyStore(UnifiedNativeAd nativeAd)
         {
             string store = nativeAd.Store;
             string advertiser = nativeAd.Advertiser;
             return !string.IsNullOrEmpty(store) && !string.IsNullOrEmpty(advertiser);
         }
 
-        public void setNativeAd(UnifiedNativeAd nativeAd)
+        public void SetNativeAd(UnifiedNativeAd nativeAd)
         {
             this.nativeAd = nativeAd;
 
@@ -203,13 +189,13 @@ namespace XamarinAdsSample
             string cta = nativeAd.CallToAction;
             int starRating = Convert.ToInt32(nativeAd.StarRating);
             NativeAd.Image icon = nativeAd.Icon;
-            string secondaryText;
+            string secondaryText = string.Empty;
 
             nativeAdView.CallToActionView = callToActionView;
             nativeAdView.HeadlineView = primaryView;
             nativeAdView.MediaView = mediaView;
             secondaryView.Visibility = ViewStates.Visible;
-            if (adHasOnlyStore(nativeAd))
+            if (AdHasOnlyStore(nativeAd))
             {
                 nativeAdView.StoreView = secondaryView;
                 secondaryText = store;
@@ -218,10 +204,6 @@ namespace XamarinAdsSample
             {
                 nativeAdView.AdvertiserView = secondaryView;
                 secondaryText = advertiser;
-            }
-            else
-            {
-                secondaryText = "";
             }
 
             primaryView.Text = headline;
@@ -266,12 +248,12 @@ namespace XamarinAdsSample
         ///  method does not destroy the template view.
         ///  https://developers.google.com/admob/android/native-unified#destroy_ad
         /// </summary>
-        public void destroyNativeAd()
+        public void DestroyNativeAd()
         {
             nativeAd.Destroy();
         }
 
-        public string getTemplateTypeName()
+        public string GetTemplateTypeName()
         {
             if (templateType == Resource.Layout.gnt_medium_template_view)
             {
@@ -281,15 +263,14 @@ namespace XamarinAdsSample
             {
                 return SMALL_TEMPLATE;
             }
-            return "";
+            return string.Empty;
         }
 
-        private void initView(Context context, IAttributeSet attributeSet)
+        private void InitView(Context context, IAttributeSet attributeSet)
         {
 
             TypedArray attributes =
                     context.Theme.ObtainStyledAttributes(attributeSet, Resource.Styleable.TemplateView, 0, 0);
-
             try
             {
                 templateType =

@@ -49,8 +49,8 @@ namespace XamarinAdsSample
                 var style = new NativeTemplateStyle.Builder().build();
                 TemplateView view = FindViewById<TemplateView>(Resource.Id.adviewTemplate);
                 view.Visibility = ViewStates.Visible;
-                view.setStyles(style);
-                view.setNativeAd(unifiedAds);
+                view.SetStyles(style);
+                view.SetNativeAd(unifiedAds);
             };
             builder.ForUnifiedNativeAd(listen);
             builder.WithAdListener(listen);

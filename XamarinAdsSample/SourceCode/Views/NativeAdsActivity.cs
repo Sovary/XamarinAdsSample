@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -13,6 +14,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 
 namespace XamarinAdsSample
 {
@@ -20,7 +22,8 @@ namespace XamarinAdsSample
     public class NativeAdsActivity : AppCompatActivity
     {
         AdsManager adsMgr;
-
+        //Stored ads and data
+        List<Object> dataAll = new List<Object>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -35,16 +38,15 @@ namespace XamarinAdsSample
             var adapter = new NativeRecyclerAdapter();
             recyclerView.SetAdapter(adapter);
 
-            //Stored batch native ads
-            var nativeAds = new List<UnifiedNativeAd>();
+            dataAll.AddRange(GetDummyData());
             var listen = new AdsUnifiedLoadListening();
             listen.Ads_UnifiedNativeLoad += (obj, unifiedAds) =>
             {
-                nativeAds.Add(unifiedAds);
+                dataAll.Add(unifiedAds);
                 var tag = ((AdsUnifiedLoadListening)obj).Tag as AdLoader;
                 if (!tag.IsLoading)
                 {
-                    adapter.SetAds(nativeAds);
+                    adapter.SetData(dataAll);
                 }
             };
 
@@ -57,7 +59,18 @@ namespace XamarinAdsSample
                 //Handle Ads clicked left app
             };
             //Max pre request 5
-            adsMgr.CreateUnifiedAds(3, listen);
+            adsMgr.CreateUnifiedAds(5, listen);
+        }
+
+
+
+        public List<MenuItem> GetDummyData()
+        {
+            using (StreamReader r = new StreamReader(ApplicationContext.Resources.OpenRawResource(Resource.Raw.menu_items_json)))
+            {
+                string json = r.ReadToEnd();
+                return JsonConvert.DeserializeObject<List<MenuItem>>(json);
+            }
         }
 
     }

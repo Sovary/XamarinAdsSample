@@ -14,18 +14,23 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         >
-        <Button
-            android:id="@+id/btnLoad"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Load Interstitial"
-             />
-        <Button
-            android:id="@+id/btnShowInter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Interstitial"
-             />
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnLoad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Load Interstitial"
+                 />
+            <Button
+                android:id="@+id/btnShowInter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Interstitial"
+                 />
+            </LinearLayout>
         <TextView
             android:text="Status:"
             android:id="@+id/txtStateInterstitial"
@@ -41,9 +46,9 @@
 
         <XamarinAdsSample.TemplateView
             android:id="@+id/adviewTemplate"
-            app:gnt_template_type="@layout/gnt_medium_template_view"
+            app:gnt_template_type="@layout/gnt_small_template_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
