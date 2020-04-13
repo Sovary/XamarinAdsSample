@@ -8,6 +8,8 @@ Sample project includes:
 - Native Ads (Unified)
 - Native Ads in Recycler view
 - Custom Template Native Ads
+<img src="https://github.com/Sovary/XamarinAdsSample/raw/master/banner.png" height="600">
+<img src="https://github.com/Sovary/XamarinAdsSample/raw/master/recycler.png" height="600">
 
 
 ## Installation requirement
