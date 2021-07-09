@@ -96,4 +96,4 @@ adsMgr.CreateUnifiedAds(5, listen);
 
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/) kong.sovaryhrdi@gmail.com
+[MIT](https://choosealicense.com/licenses/mit/) kong dot sovaryhrdi at gmail dot com
